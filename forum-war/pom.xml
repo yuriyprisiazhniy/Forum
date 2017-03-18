@@ -9,8 +9,8 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>forum-controllers</artifactId>
-    <name>forum-controllers</name>
+    <artifactId>forum-war</artifactId>
+    <name>forum-war</name>
     <packaging>war</packaging>
 
     <build>
@@ -22,6 +22,16 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>forum-services</artifactId>
             <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${springframework.version}</version>
         </dependency>
     </dependencies>
 </project>

@@ -10,9 +10,13 @@
     <name>Forum-parent</name>
 
     <modules>
-        <module>forum-controllers</module>
+        <module>forum-war</module>
         <module>forum-services</module>
     </modules>
+
+    <properties>
+        <springframework.version>4.3.3.RELEASE</springframework.version>
+    </properties>
 
     <build>
         <plugins>
