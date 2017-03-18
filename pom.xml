@@ -8,4 +8,22 @@
     <version>1.0.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Forum-parent</name>
+
+    <modules>
+        <module>forum-controllers</module>
+        <module>forum-services</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <target>1.8</target>
+                    <source>1.8</source>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
