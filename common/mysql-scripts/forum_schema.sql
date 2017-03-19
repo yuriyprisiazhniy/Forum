@@ -31,7 +31,7 @@ CREATE TABLE `Posts` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
   `header` VARCHAR(255) NULL,
   `text` TEXT NOT NULL,
-  `comment_to` INTEGER DEFAULT NULL,
+  `parent` INTEGER DEFAULT NULL,
   `theme` INTEGER NOT NULL,
   `user` INTEGER NOT NULL,
   PRIMARY KEY (`id`)
@@ -40,7 +40,8 @@ CREATE TABLE `Posts` (
 DROP TABLE IF EXISTS `Users`;
 CREATE TABLE `Users` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(20) NOT NULL,
+  `name` VARCHAR(40) NOT NULL,
+  `email` VARCHAR(40) NOT NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -53,4 +54,4 @@ ALTER TABLE `Themes` ADD FOREIGN KEY (user) REFERENCES `Users` (`id`);
 ALTER TABLE `Themes` ADD FOREIGN KEY (category) REFERENCES `Categories` (`id`);
 ALTER TABLE `Posts` ADD FOREIGN KEY (theme) REFERENCES `Themes` (`id`);
 ALTER TABLE `Posts` ADD FOREIGN KEY (user) REFERENCES `Users` (`id`);
-ALTER TABLE `Posts` ADD FOREIGN KEY (comment_to) REFERENCES `Posts` (`id`);
+ALTER TABLE `Posts` ADD FOREIGN KEY (parent) REFERENCES `Posts` (`id`);

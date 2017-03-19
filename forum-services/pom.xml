@@ -15,4 +15,11 @@
     <build>
         <finalName>${project.name}</finalName>
     </build>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+    </dependencies>
 </project>

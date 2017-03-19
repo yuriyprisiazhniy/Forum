@@ -15,7 +15,7 @@
     </modules>
 
     <properties>
-        <springframework.version>4.3.3.RELEASE</springframework.version>
+        <springframework.version>4.3.7.RELEASE</springframework.version>
     </properties>
 
     <build>
@@ -30,4 +30,12 @@
             </plugin>
         </plugins>
     </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+    </dependencies>
 </project>
