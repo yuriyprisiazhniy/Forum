@@ -11,6 +11,16 @@ public class Post {
     private String header;
     private String text;
 
+    public Post(){}
+
+    public Post(Post parent, Theme theme, User user, String header, String text) {
+        this.parent = parent;
+        this.theme = theme;
+        this.user = user;
+        this.header = header;
+        this.text = text;
+    }
+
     public Integer getId() {
         return id;
     }

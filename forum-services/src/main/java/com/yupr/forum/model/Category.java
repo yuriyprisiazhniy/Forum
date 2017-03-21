@@ -9,6 +9,16 @@ public class Category {
     private String name;
     private String description;
 
+    public Category(){
+
+    }
+
+    public Category(User user, String name, String description) {
+        this.user = user;
+        this.name = name;
+        this.description = description;
+    }
+
     public Integer getId() {
         return id;
     }

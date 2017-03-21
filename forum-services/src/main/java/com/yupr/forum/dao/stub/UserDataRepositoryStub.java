@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
  * Created by Yura on 19.03.2017.
  */
 
-@Component
+@Repository
 public class UserDataRepositoryStub implements UserDataRepository {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserDataRepositoryStub.class);
     private static List<User> userList = new ArrayList<>();

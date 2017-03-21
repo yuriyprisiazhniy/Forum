@@ -10,6 +10,16 @@ public class Theme {
     private String name;
     private String description;
 
+    public Theme() {
+    }
+
+    public Theme(Category category, User user, String name, String description) {
+        this.category = category;
+        this.user = user;
+        this.name = name;
+        this.description = description;
+    }
+
     public Integer getId() {
         return id;
     }

@@ -48,4 +48,11 @@ public class MainController {
                 .map(user -> ResponseEntity.ok().body(user))
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    @PostMapping("/users")
+    @ResponseBody
+    public ResponseEntity<User> createUser(@RequestBody User userData){
+        User user = userRepo.createUser(userData);
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
+    }
 }
