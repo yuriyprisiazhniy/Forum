@@ -45,7 +45,7 @@ public class MainController {
     @ResponseBody
     public ResponseEntity<User> updateUser(@PathVariable Integer id, @RequestBody User userData){
         return userRepo.updateUser(id, userData)
-                .map(user -> ResponseEntity.ok().body(user))
+                .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
