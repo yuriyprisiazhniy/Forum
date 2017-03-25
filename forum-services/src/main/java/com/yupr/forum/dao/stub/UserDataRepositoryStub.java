@@ -48,6 +48,7 @@ public class UserDataRepositoryStub implements UserDataRepository {
 
     @Override
     public List<User> getAllUsers() {
+        LOGGER.info("Getting list of all users!!!!");
         return userList;
     }
 
