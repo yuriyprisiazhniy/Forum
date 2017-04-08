@@ -25,6 +25,11 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
         <property name="packagesToScan" value="com.yupr.forum.model"/>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.id.new_generator_mappings">false</prop>
+            </props>
+        </property>
     </bean>
 
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"/>
