@@ -1,7 +1,7 @@
 package com.yupr.forum.controllers;
 
-import com.yupr.forum.dao.UserDataRepository;
 import com.yupr.forum.model.User;
+import com.yupr.forum.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +19,7 @@ import java.util.Optional;
 public class MainController {
 
     @Autowired
-    private UserDataRepository userRepo;
+    private UserRepository userRepo;
 
     @GetMapping("/hello")
     @ResponseBody
@@ -30,29 +30,29 @@ public class MainController {
     @GetMapping("/users")
     @ResponseBody
     public List<User> showUsers(){
-        return userRepo.getAllUsers();
+        return userRepo.findAll();
     }
 
-    @GetMapping("/users/{id}")
-    @ResponseBody
-    public ResponseEntity<User> getUser(@PathVariable Integer id){
-        return userRepo.getUser(id)
-                .map(user -> ResponseEntity.ok().body(user))
-                .orElse(ResponseEntity.notFound().build());
-    }
-
-    @PutMapping("/users/{id}")
-    @ResponseBody
-    public ResponseEntity<User> updateUser(@PathVariable Integer id, @RequestBody User userData){
-        return userRepo.updateUser(id, userData)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
-    }
-
+//    @GetMapping("/users/{id}")
+//    @ResponseBody
+//    public ResponseEntity<User> getUser(@PathVariable Integer id){
+//        return userRepo.getUser(id)
+//                .map(user -> ResponseEntity.ok().body(user))
+//                .orElse(ResponseEntity.notFound().build());
+//    }
+//
+//    @PutMapping("/users/{id}")
+//    @ResponseBody
+//    public ResponseEntity<User> updateUser(@PathVariable Integer id, @RequestBody User userData){
+//        return userRepo.updateUser(id, userData)
+//                .map(ResponseEntity::ok)
+//                .orElse(ResponseEntity.notFound().build());
+//    }
+//
     @PostMapping("/users")
     @ResponseBody
     public ResponseEntity<User> createUser(@RequestBody User userData){
-        User user = userRepo.createUser(userData);
+        User user = userRepo.save(userData);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 }

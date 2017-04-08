@@ -7,8 +7,8 @@ USE Forum;
 -- Tables definition
 -- ---
 
-DROP TABLE IF EXISTS `Categories`;
-CREATE TABLE `Categories` (
+DROP TABLE IF EXISTS Category;
+CREATE TABLE Category (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50) NOT NULL,
   `description` TEXT DEFAULT NULL,
@@ -16,8 +16,8 @@ CREATE TABLE `Categories` (
   PRIMARY KEY (`id`)
 );
 
-DROP TABLE IF EXISTS `Themes`;
-CREATE TABLE `Themes` (
+DROP TABLE IF EXISTS Theme;
+CREATE TABLE Theme (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50) NOT NULL,
   `description` TEXT DEFAULT NULL,
@@ -26,8 +26,8 @@ CREATE TABLE `Themes` (
   PRIMARY KEY (`id`)
 );
 
-DROP TABLE IF EXISTS `Posts`;
-CREATE TABLE `Posts` (
+DROP TABLE IF EXISTS Post;
+CREATE TABLE Post (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
   `header` VARCHAR(255) NULL,
   `text` TEXT NOT NULL,
@@ -37,8 +37,8 @@ CREATE TABLE `Posts` (
   PRIMARY KEY (`id`)
 );
 
-DROP TABLE IF EXISTS `Users`;
-CREATE TABLE `Users` (
+DROP TABLE IF EXISTS User;
+CREATE TABLE User (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(40) NOT NULL,
   `email` VARCHAR(40) NOT NULL,
@@ -49,9 +49,9 @@ CREATE TABLE `Users` (
 -- Foreign Keys
 -- ---
 
-ALTER TABLE `Categories` ADD FOREIGN KEY (user) REFERENCES `Users` (`id`);
-ALTER TABLE `Themes` ADD FOREIGN KEY (user) REFERENCES `Users` (`id`);
-ALTER TABLE `Themes` ADD FOREIGN KEY (category) REFERENCES `Categories` (`id`);
-ALTER TABLE `Posts` ADD FOREIGN KEY (theme) REFERENCES `Themes` (`id`);
-ALTER TABLE `Posts` ADD FOREIGN KEY (user) REFERENCES `Users` (`id`);
-ALTER TABLE `Posts` ADD FOREIGN KEY (parent) REFERENCES `Posts` (`id`);
+ALTER TABLE Category ADD FOREIGN KEY (user) REFERENCES User (`id`);
+ALTER TABLE Theme ADD FOREIGN KEY (user) REFERENCES User (`id`);
+ALTER TABLE Theme ADD FOREIGN KEY (category) REFERENCES Category (`id`);
+ALTER TABLE Post ADD FOREIGN KEY (theme) REFERENCES Theme (`id`);
+ALTER TABLE Post ADD FOREIGN KEY (user) REFERENCES User (`id`);
+ALTER TABLE Post ADD FOREIGN KEY (parent) REFERENCES Post (`id`);
